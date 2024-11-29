@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendrier de l'Avent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calendar-container">
+    <h1>CALENDRIER de l'Avent POUR MA GNONNI</h1>
+    <p>Chaque jour, clique sur le bouton pour découvrir ta surprise <3</p>
+
+    <div class="calendar-grid">
+      <!-- Jour 1 -->
+      <div class="day" id="day1">
+        <p>1 Décembre</p>
+        <button class="open-button" onclick="openSurprise(1)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise1">
+          <p>🎁 Lettre d'amour "cette fille" : <a href="index2.html">Clique bb</a></p>
+        </div>
+      </div>
+
+      <!-- Jour 2 -->
+      <div class="day" id="day2">
+        <p>2 Décembre</p>
+        <button class="open-button" onclick="openSurprise(2)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise2">
+          <p>📸 Un souvenir de nous deux : <a href="trekpdf.pdf">Notre premier trek en amoureux</a></p>
+        </div>
+      </div>
+
+      <!-- Jour 3 -->
+      <div class="day" id="day3">
+        <p>3 Décembre</p>
+        <button class="open-button" onclick="openSurprise(3)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise3">
+          <p>🌍 Une carte interactive d’un voyage rêvé : <a href="https://www.google.com/maps" target="_blank">Clique ici</a></p>
+        </div>
+      </div>
+
+      <!-- Jour 4 -->
+      <div class="day" id="day4">
+        <p>4 Décembre</p>
+        <button class="open-button" onclick="openSurprise(4)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise4">
+          <p>🎶 Une playlist créée pour toi : <a href="#">Écoute ici</a>.</p>
+        </div>
+      </div>
+
+      <!-- Jour 5 -->
+      <div class="day" id="day5">
+        <p>5 Décembre</p>
+        <button class="open-button" onclick="openSurprise(5)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise5">
+          <p>💌 Une citation d'amour : "Avec toi, chaque instant est une aventure."</p>
+        </div>
+      </div>
+
+      <!-- Jour 6 -->
+      <div class="day" id="day6">
+        <p>6 Décembre</p>
+        <button class="open-button" onclick="openSurprise(6)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise6">
+          <p>🖼️ Une photo spéciale pour toi : <img src="photo6.jpg" alt="Souvenir" width="100%"></p>
+        </div>
+      </div>
+
+      <!-- Jour 7 -->
+      <div class="day" id="day7">
+        <p>7 Décembre</p>
+        <button class="open-button" onclick="openSurprise(7)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise7">
+          <p>🏃‍♀️ Un défi sportif à relever ensemble : 15km pour nos 1.5 année ensemble</p>
+        </div>
+      </div>
+
+      <!-- Jour 8 -->
+      <div class="day" id="day8">
+        <p>8 Décembre</p>
+        <button class="open-button" onclick="openSurprise(8)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise8">
+          <p>📜 Une devinette : "Quel est notre meilleur souvenir ensemble ?"</p>
+        </div>
+      </div>
+
+      <!-- Jour 9 -->
+      <div class="day" id="day9">
+        <p>9 Décembre</p>
+        <button class="open-button" onclick="openSurprise(9)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise9">
+          <p>📸 Une idée de voyage avec une image inspirante : <img src="travel.jpg" alt="Voyage" width="100%"></p>
+        </div>
+      </div>
+
+      <!-- Jour 10 -->
+      <div class="day" id="day10">
+        <p>10 Décembre</p>
+        <button class="open-button" onclick="openSurprise(10)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise10">
+          <p>🎥 Un film à regarder ensemble : <strong>*Le Fabuleux Destin d'Amélie Poulain*</strong></p>
+        </div>
+      </div>
+
+      <!-- Jour 11 -->
+      <div class="day" id="day11">
+        <p>11 Décembre</p>
+        <button class="open-button" onclick="openSurprise(11)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise11">
+          <p>🎵 Une chanson qui me fait penser à toi : <a href="#">Écoute-la ici</a>.</p>
+        </div>
+      </div>
+
+      <!-- Jour 12 -->
+      <div class="day" id="day12">
+        <p>12 Décembre</p>
+        <button class="open-button" onclick="openSurprise(12)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise12">
+          <p>🎨 Un dessin ou une image que j'ai créée pour toi.</p>
+        </div>
+      </div>
+
+      <!-- Jour 13 -->
+      <div class="day" id="day13">
+        <p>13 Décembre</p>
+        <button class="open-button" onclick="openSurprise(13)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise13">
+          <p>🌈 Une photo du lever de soleil que j'ai vu en pensant à toi.</p>
+        </div>
+      </div>
+
+      <!-- Jour 14 -->
+      <div class="day" id="day14">
+        <p>14 Décembre</p>
+        <button class="open-button" onclick="openSurprise(14)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise14">
+          <p>📖 Un poème que j’ai écrit : "Ton sourire éclaire mes jours."</p>
+        </div>
+      </div>
+
+      <!-- Jour 15 -->
+      <div class="day" id="day15">
+        <p>15 Décembre</p>
+        <button class="open-button" onclick="openSurprise(15)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise15">
+          <p>🗺️ Une carte pour un futur voyage ensemble.</p>
+        </div>
+      </div>
+
+      <!-- Jour 16 -->
+      <div class="day" id="day16">
+        <p>16 Décembre</p>
+        <button class="open-button" onclick="openSurprise(16)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise16">
+          <p>🧁 Une recette à essayer ensemble : *Cookies au chocolat*.</p>
+        </div>
+      </div>
+
+      <!-- Jour 17 -->
+      <div class="day" id="day17">
+        <p>17 Décembre</p>
+        <button class="open-button" onclick="openSurprise(17)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise17">
+          <p>📷 Une compilation de nos plus beaux moments.</p>
+        </div>
+      </div>
+
+      <!-- Jour 18 -->
+      <div class="day" id="day18">
+        <p>18 Décembre</p>
+        <button class="open-button" onclick="openSurprise(18)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise18">
+          <p>🎁 Un cadeau virtuel : "Un câlin infini."</p>
+        </div>
+      </div>
+
+      <!-- Jour 19 -->
+      <div class="day" id="day19">
+        <p>19 Décembre</p>
+        <button class="open-button" onclick="openSurprise(19)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise19">
+          <p>✉️ Une lettre pleine de promesses pour notre futur.</p>
+        </div>
+      </div>
+
+      <!-- Jour 20
+
+ -->
+      <div class="day" id="day20">
+        <p>20 Décembre</p>
+        <button class="open-button" onclick="openSurprise(20)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise20">
+          <p>💬 Une vidéo où je te dis ce que tu représentes pour moi.</p>
+        </div>
+      </div>
+
+      <!-- Jour 21 -->
+      <div class="day" id="day21">
+        <p>21 Décembre</p>
+        <button class="open-button" onclick="openSurprise(21)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise21">
+          <p>🌟 Un moment de gratitude : "Merci d’être toi."</p>
+        </div>
+      </div>
+
+      <!-- Jour 22 -->
+      <div class="day" id="day22">
+        <p>22 Décembre</p>
+        <button class="open-button" onclick="openSurprise(22)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise22">
+          <p>🛤️ Une vidéo d’un endroit que je veux visiter avec toi.</p>
+        </div>
+      </div>
+
+      <!-- Jour 23 -->
+      <div class="day" id="day23">
+        <p>23 Décembre</p>
+        <button class="open-button" onclick="openSurprise(23)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise23">
+          <p>🎄 Une image de Noël : "Imagine-nous ici, ensemble."</p>
+        </div>
+      </div>
+
+      <!-- Jour 24 -->
+      <div class="day" id="day24">
+        <p>24 Décembre</p>
+        <button class="open-button" onclick="openSurprise(24)">Ouvrir</button>
+        <div class="surprise hidden" id="surprise24">
+          <p>❤️ Mon cadeau le plus précieux : tout mon amour pour toi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

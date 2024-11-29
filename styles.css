@@ -1,0 +1,112 @@
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Conteneur principal */
+.calendar-container {
+    padding: 20px;
+    
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+}
+
+/* Grille des jours */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes par défaut */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.day {
+    background: #fff;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.day p {
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+/* Boutons */
+.open-button {
+    background-color: #fd6c9e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.open-button:hover {
+    background-color: #fd6c9e;
+}
+
+/* Surprises */
+.surprise {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Fond modifiable */
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #ffe1ec;
+}
+
+/* MEDIA QUERIES */
+
+/* Pour les petits écrans comme les téléphones (moins de 600px de large) */
+@media (max-width: 600px) {
+    .calendar-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+        gap: 10px;
+    }
+
+    .day {
+        padding: 10px; /* Réduit la taille des cases */
+        font-size: 14px;
+    }
+
+    .open-button {
+        padding: 8px 10px; /* Réduit la taille des boutons */
+        font-size: 12px;
+    }
+}
+
+/* Pour les écrans très petits (moins de 400px de large) */
+@media (max-width: 400px) {
+    .calendar-grid {
+        grid-template-columns: 1fr; /* 1 colonne */
+    }
+
+    h1 {
+        font-size: 20px; /* Réduit la taille du titre */
+    }
+
+    p {
+        font-size: 14px; /* Réduit la taille des paragraphes */
+    }
+}
+
