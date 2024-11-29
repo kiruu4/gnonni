@@ -3,9 +3,9 @@ function openSurprise(day) {
     const currentDay = today.getDate(); // Numéro du jour dans le mois
     const currentMonth = today.getMonth(); // Numéro du mois (0 = Janvier, 11 = Décembre)
   
-    // Vérifie si on est bien en novembre
-    if (currentMonth !== 10) { // 10 = Novembre
-      alert("Ce calendrier n'est disponible qu'en novembre !");
+    // Vérifie si on est bien en décembre
+    if (currentMonth !== 11) { // 11 = Décembre
+      alert("Ce calendrier n'est disponible qu'en décembre !");
       return;
     }
   
