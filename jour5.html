@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jour 4 - Décris-moi</title>
+  <link rel="stylesheet" href="jour4.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Décris-moi en 3 mots</h1>
+    <p><b>Petit jeu interactif pour aujourd'hui</b></p>
+    <p>Écris dans les cases les trois mots qui te viennent à l'esprit pour décrire ton <b>aurele_batt</b></p>
+    <form id="descriptionForm">
+      <label for="word1">Mot 1 :</label>
+      <input type="text" id="word1" name="word1" required><br>
+
+      <label for="word2">Mot 2 :</label>
+      <input type="text" id="word2" name="word2" required><br>
+
+      <label for="word3">Mot 3 :</label>
+      <input type="text" id="word3" name="word3" required><br>
+
+      <button type="button" onclick="submitWords()">Valider</button>
+    </form>
+    <div id="result" class="hidden">
+      <h2>Valide et screen pour m'envoier bb :</h2>
+      <p id="response1"></p>
+      <p id="response2"></p>
+      <p id="response3"></p>
+    </div>
+  </div>
+
+  <script src="jour4.js"></script>
+</body>
+</html>
