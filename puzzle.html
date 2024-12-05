@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Interactif</title>
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Assemble le puzzle gnonni !</h1>
+        <p>Une fois terminé, screen et envoie le moi</p>
+            <h2>Puis clique sur Valider pour voir ta surprise</h2>
+            <div id="puzzle-container"></div>
+            <button id="validate-button" class="validate-button">Valider</button>
+            <div id="message" class="hidden">
+                Félicitations, tu as gagné un massage ce soir ! 💆‍♀️💆‍♂️
+                <p id="countdown"></p>
+            </div>
+
+            <div id="countdown"></div>
+        </div>
+    </div>
+
+    <script src="puzzle.js"></script>
+</body>
+
+</html>
