@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Notre Histoire</title>
+  <link rel="stylesheet" href="quizz.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz : 8 JOURS AVANT TON RETOUR</h1>
+    <h4>Avant de valider, screen et envoie moi pour que je puisse voir tes réponses</h4>
+    <form id="quiz-form">
+      <div class="quiz-question">
+        <label>1. Où avons-nous eu notre premier rendez-vous ?</label>
+        <input type="text" name="question1" placeholder="Ta réponse...">
+      </div>
+      <div class="quiz-question">
+        <label>2. Ma couleur préférée ?</label>
+        <input type="text" name="question2" placeholder="Ta réponse...">
+      </div>
+      <div class="quiz-question">
+        <label>3. Quel est notre prochain voyage rêvé ?</label>
+        <input type="text" name="question3" placeholder="Ta réponse...">
+      </div>
+      <div class="quiz-question">
+        <label>4. Quel est le plat que je cuisine le mieux ?</label>
+        <input type="text" name="question4" placeholder="Ta réponse...">
+      </div>
+      <div class="quiz-question">
+        <label>5. Quel est ton surnom préféré que je te donne bb (non c'est pas bb) ?</label>
+        <input type="text" name="question5" placeholder="Ta réponse...">
+      </div>
+      <div class="quiz-question">
+        <label>6. Combien de kilomètres avons-nous couru ensemble la dernière fois (facile) ?</label>
+        <input type="text" name="question6" placeholder="Ta réponse...">
+      </div>
+      <button type="button" id="submit-quiz">Valider</button>
+    </form>
+    <div id="result-message" class="hidden">
+      <p>Bravo mon bb pour le quiz ! 🥳</p>
+      <p>Juste pour te rappeler que tu rentres dans 8 JOURS ❤️❤️❤️</p>
+    </div>
+  </div>
+  <script src="quizz.js"></script>
+</body>
+</html>
