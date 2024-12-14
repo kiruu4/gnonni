@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette des Activités</title>
+    <link rel="stylesheet" href="roulette.css">
+</head>
+<body>
+    <div class="roulette-container">
+        <div class="roulette-wheel">
+            <div class="activity" style="--i: 0;">Run 15 km</div>
+            <div class="activity" style="--i: 1;">Vélo 50 km</div>
+            <div class="activity" style="--i: 2;">Piscine kk</div>
+            <div class="activity" style="--i: 3;">Film</div>
+            <div class="activity" style="--i: 4;">Restaurant</div>
+            <div class="activity" style="--i: 5;">Pique-nique</div>
+        </div>
+        <button id="spin-button">Lancer la roue</button>
+        <div id="result-message" class="hidden">
+            Activité choisie : <span id="chosen-activity"></span> !
+        </div>
+    </div>
+    <script src="roulette.js"></script>
+</body>
+</html>
