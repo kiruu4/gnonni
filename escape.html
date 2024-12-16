@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Game - Nous Deux</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffd1dc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #fd6c9e;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #fd6c9e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff85ad;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 100%;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+
+    .failure {
+      color: red;
+      font-weight: bold;
+    }
+
+    .puzzle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .puzzle img {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Escape Game - Notre Aventure</h1>
+    <p>Résous les énigmes pour avancer et gagner une surprise !</p>
+  </header>
+
+  <div class="container">
+    <!-- Step 1 -->
+    <div class="step active" id="step1">
+      <h2>Énigme 1 : Notre premier caca ensemble</h2>
+      <p>Devine : Où est-ce qu'on a fait caca ensemble pour la première fois ?</p>
+      <input type="text" id="answer1" placeholder="Tape ta réponse ici...">
+      <button onclick="checkAnswer1()">Valider</button>
+      <p id="feedback1"></p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" id="step2">
+      <h2>Énigme 2 : Trouve le cœur caché</h2>
+      <p>Cliquer sur le bon cœur pour avancer.</p>
+      <div class="puzzle">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(true)"> 
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+        <img src="https://via.placeholder.com/80/ddd/333?text=Cœur" onclick="clickHeart(false)">
+
+      </div>
+      <p id="feedback2"></p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="step3">
+      <h2>Énigme 3 : Devine mes goûts</h2>
+      <p>Quel est mon plat préféré ? (piège) demande un indicie sur snap si tu galères</p>
+      <input type="text" id="answer3" placeholder="Tape ta réponse ici...">
+      <button onclick="checkAnswer3()">Valider</button>
+      <p id="feedback3"></p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step" id="step4">
+      <h2>Bravo, tu as terminé bb ! 🎉</h2>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+  
+    function goToStep(stepNumber) {
+      document.querySelector(`#step${currentStep}`).classList.remove("active");
+      document.querySelector(`#step${stepNumber}`).classList.add("active");
+      currentStep = stepNumber;
+    }
+  
+    function normalizeInput(input) {
+      return input
+        .trim() // Supprime les espaces superflus
+        .toLowerCase() // Transforme en minuscules
+        .normalize("NFD") // Enlève les accents
+        .replace(/[\u0300-\u036f]/g, ""); // Supprime les caractères diacritiques
+    }
+  
+    function checkAnswer1() {
+      const answer = normalizeInput(document.getElementById("answer1").value);
+      if (answer === "jura") {
+        document.getElementById("feedback1").innerHTML = '<span class="success">Bonne réponse !</span>';
+        setTimeout(() => goToStep(2), 1000);
+      } else {
+        document.getElementById("feedback1").innerHTML = '<span class="failure">Mauvaise réponse, réessaye.</span>';
+      }
+    }
+  
+    function clickHeart(isCorrect) {
+      if (isCorrect) {
+        document.getElementById("feedback2").innerHTML = '<span class="success">Bravo, c\'est le bon cœur !</span>';
+        setTimeout(() => goToStep(3), 1000);
+      } else {
+        document.getElementById("feedback2").innerHTML = '<span class="failure">Ce n\'est pas le bon cœur, réessaye.</span>';
+      }
+    }
+  
+    function checkAnswer3() {
+      const answer = normalizeInput(document.getElementById("answer3").value);
+      if (answer.includes("Juliette") || answer.includes("juliette") || answer.includes("gnonni")) {
+        document.getElementById("feedback3").innerHTML = '<span class="success">Bonne réponse !</span>';
+        setTimeout(() => goToStep(4), 1000);
+      } else {
+        document.getElementById("feedback3").innerHTML = '<span class="failure">Non, essaie encore.</span>';
+      }
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Course des Cœurs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+      background-color: #ffd1dc;
+    }
+
+    #gameCanvas {
+      display: block;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 3px solid #fd6c9e;
+    }
+
+    .game-info {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #fd6c9e;
+      margin: 10px;
+    }
+
+    .start-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #fd6c9e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .start-btn:hover {
+      background-color: #ff85ad;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-info">Évite les obstacles et atteins l'autre cœur !</div>
+  <canvas id="gameCanvas" width="320" height="480"></canvas>
+  <button class="start-btn" onclick="startGame()">Commencer</button>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let heart, obstacles, gameRunning;
+    let score = 0;
+
+    const gameWidth = canvas.width;
+    const gameHeight = canvas.height;
+
+    const heartSize = 30;
+    const obstacleWidth = 40;
+    const obstacleHeight = 20;
+    const obstacleSpeed = 3;
+
+    // Initialize the heart
+    function resetHeart() {
+      heart = {
+        x: gameWidth / 2 - heartSize / 2,
+        y: gameHeight - heartSize - 10,
+        size: heartSize,
+      };
+    }
+
+    // Initialize obstacles
+    function resetObstacles() {
+      obstacles = [];
+      for (let i = 0; i < 4; i++) {
+        obstacles.push({
+          x: Math.random() * (gameWidth - obstacleWidth),
+          y: Math.random() * -gameHeight,
+          width: obstacleWidth,
+          height: obstacleHeight,
+        });
+      }
+    }
+
+    function startGame() {
+      resetHeart();
+      resetObstacles();
+      score = 0;
+      gameRunning = true;
+      document.querySelector(".start-btn").style.display = "none";
+      requestAnimationFrame(updateGame);
+    }
+
+    function drawHeart() {
+      ctx.fillStyle = "#fd6c9e";
+      ctx.beginPath();
+      const x = heart.x + heart.size / 2;
+      const y = heart.y + heart.size / 2;
+      const size = heart.size / 2;
+      ctx.moveTo(x, y + size / 4);
+      ctx.arc(x - size / 2, y, size / 2, Math.PI, 0, false);
+      ctx.arc(x + size / 2, y, size / 2, Math.PI, 0, false);
+      ctx.lineTo(x, y + size);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawObstacle(obstacle) {
+      ctx.fillStyle = "#ff85ad";
+      ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+    }
+
+    function drawScore() {
+      ctx.fillStyle = "#fd6c9e";
+      ctx.font = "20px Arial";
+      ctx.fillText(`Score: ${score}`, 10, 30);
+    }
+
+    function moveObstacles() {
+      for (let obstacle of obstacles) {
+        obstacle.y += obstacleSpeed;
+        if (obstacle.y > gameHeight) {
+          obstacle.y = Math.random() * -gameHeight;
+          obstacle.x = Math.random() * (gameWidth - obstacleWidth);
+          score++;
+        }
+      }
+    }
+
+    function checkCollision() {
+      for (let obstacle of obstacles) {
+        if (
+          heart.x < obstacle.x + obstacle.width &&
+          heart.x + heart.size > obstacle.x &&
+          heart.y < obstacle.y + obstacle.height &&
+          heart.y + heart.size > obstacle.y
+        ) {
+          gameRunning = false;
+          alert("Oh non ! Tu as perdu ! Essaye encore ❤️");
+          document.querySelector(".start-btn").style.display = "block";
+        }
+      }
+    }
+
+    function moveHeart(event) {
+      const key = event.key;
+      if (key === "ArrowLeft" && heart.x > 0) {
+        heart.x -= 20;
+      } else if (key === "ArrowRight" && heart.x < gameWidth - heartSize) {
+        heart.x += 20;
+      } else if (key === "ArrowUp" && heart.y > 0) {
+        heart.y -= 20;
+      } else if (key === "ArrowDown" && heart.y < gameHeight - heartSize) {
+        heart.y += 20;
+      }
+    }
+
+    function updateGame() {
+      if (!gameRunning) return;
+
+      ctx.clearRect(0, 0, gameWidth, gameHeight);
+
+      moveObstacles();
+      checkCollision();
+
+      drawHeart();
+      for (let obstacle of obstacles) {
+        drawObstacle(obstacle);
+      }
+      drawScore();
+
+      requestAnimationFrame(updateGame);
+    }
+
+    window.addEventListener("keydown", moveHeart);
+  </script>
+</body>
+</html>

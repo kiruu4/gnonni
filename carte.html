@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte pour notre voyage</title>
+    <link rel="stylesheet" href="carte.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <h1>🗺️ Notre Voyage de Rêve VAN EDITION 2025🌍</h1>
+    <p>Balade-toi sur la carte et choisis 3 destinations en Europe de TON CHOIX.
+        Valide ton choix, puis fais une capture d'écran de tes destinations.
+    </p>
+    <P>Ensuite, envoie-moi la capture pour qu'on puisse comparer nos résultats et voir celles qu'on a en commun pour décider de la déstination.</P>
+    <div id="map"></div>
+    <p>⚠️ Attention : je suis sérieux, on part cet été !</p>
+    <button id="finalize-trip">Valider les Destinations</button>
+    <div id="result-message" class="hidden">
+        <h2> destinations : ❤️</h2>
+        <ul id="destination-list"></ul>
+    </div>
+    <script src="carte.js"></script>
+</body>
+
+</html>
