@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer Ton Propre Jour</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe4e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fd6c9e;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #fd6c9e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #ff85ad;
+        }
+
+        .created-day {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #fd6c9e;
+            background-color: #fff9fb;
+            border-radius: 10px;
+        }
+
+        .created-day img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Crée Ton Propre Jour</h1>
+        <p>Tu peux mettre un lien, une photo, un message... bref à toi de faire ce que tu veux pour aujourd'hui</p>
+        <label for="day-title">Titre du jour</label>
+        <input type="text" id="day-title" placeholder="Exemple : Mon jour parfait">
+
+        <label for="day-description">Description</label>
+        <textarea id="day-description" rows="4" placeholder="Décris ce jour spécial..."></textarea>
+
+        <label for="day-link">Lien vers une surprise (facultatif)</label>
+        <input type="url" id="day-link" placeholder="Exemple : https://mon-surprise.fr">
+
+        <label for="day-image">URL de l'image (facultatif)</label>
+        <input type="url" id="day-image" placeholder="Exemple : https://image.exemple.com/jour.jpg">
+
+        <button onclick="createCustomDay()">Créer</button>
+
+        <!-- Section où le jour créé sera affiché -->
+        <div id="created-day-container"></div>
+    </div>
+
+    <script>
+        function createCustomDay() {
+            // Récupération des valeurs des champs
+            const title = document.getElementById("day-title").value.trim();
+            const description = document.getElementById("day-description").value.trim();
+            const link = document.getElementById("day-link").value.trim();
+            const imageUrl = document.getElementById("day-image").value.trim();
+
+            // Validation des champs obligatoires
+            if (!title || !description) {
+                alert("Le titre et la description sont obligatoires !");
+                return;
+            }
+
+            // Création du conteneur pour le jour personnalisé
+            const createdDayContainer = document.getElementById("created-day-container");
+            createdDayContainer.innerHTML = ""; // Réinitialise le conteneur
+
+            const dayDiv = document.createElement("div");
+            dayDiv.classList.add("created-day");
+
+            // Ajout du titre
+            const dayTitle = document.createElement("h2");
+            dayTitle.textContent = title;
+            dayDiv.appendChild(dayTitle);
+
+            // Ajout de la description
+            const dayDescription = document.createElement("p");
+            dayDescription.textContent = description;
+            dayDiv.appendChild(dayDescription);
+
+            // Ajout du lien, si disponible
+            if (link) {
+                const dayLink = document.createElement("a");
+                dayLink.href = link;
+                dayLink.textContent = "Découvrir la surprise";
+                dayLink.target = "_blank";
+                dayLink.style.color = "#fd6c9e";
+                dayLink.style.textDecoration = "none";
+                dayDiv.appendChild(dayLink);
+            }
+
+            // Ajout de l'image, si disponible
+            if (imageUrl) {
+                const dayImage = document.createElement("img");
+                dayImage.src = imageUrl;
+                dayDiv.appendChild(dayImage);
+            }
+
+            // Ajout du jour personnalisé au conteneur
+            createdDayContainer.appendChild(dayDiv);
+
+            // Réinitialisation des champs
+            document.getElementById("day-title").value = "";
+            document.getElementById("day-description").value = "";
+            document.getElementById("day-link").value = "";
+            document.getElementById("day-image").value = "";
+
+            alert("Ton jour a été créé avec succès !");
+        }
+    </script>
+</body>
+
+</html>
